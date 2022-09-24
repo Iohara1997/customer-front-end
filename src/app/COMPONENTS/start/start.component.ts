@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CustomerService } from '../../SERVICES/customer.service'
+import { UserService } from '../../SERVICES/user.service';
 @Component({
   selector: 'app-start',
   templateUrl: './start.component.html',
@@ -8,10 +9,14 @@ import { CustomerService } from '../../SERVICES/customer.service'
 
 export class StartComponent implements OnInit {
 
-  constructor(private CustomerService: CustomerService) { }
+  constructor(private CustomerService: CustomerService, private UserService: UserService) { }
 
   ngOnInit(): void {
     this.listCustomers()
+  }
+
+  logout() {
+    this.UserService.logout();
   }
 
   listCustomers() {
@@ -19,7 +24,7 @@ export class StartComponent implements OnInit {
       res => {
         console.log(res)
       },
-      err => console.log(err)
+      err => console.error(err)
     )
   }
 

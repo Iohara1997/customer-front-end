@@ -7,23 +7,46 @@ import { StartComponent } from './COMPONENTS/start/start.component';
 import { AddComponent } from './COMPONENTS/add/add.component';
 import { UpdateComponent } from './COMPONENTS/update/update.component';
 
-import { HttpClientModule } from '@angular/common/http';
-import { FormsModule } from '@angular/forms'
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { LoginComponent } from './COMPONENTS/login/login.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
+
+import { MatCardModule } from '@angular/material/card';
+import { MatInputModule } from '@angular/material/input';
+import { MatButtonModule } from '@angular/material/button';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatIconModule } from '@angular/material/icon';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { TokenInterceptor } from './SERVICES/interceptors/token.interceptor';
 
 @NgModule({
   declarations: [
     AppComponent,
     StartComponent,
     AddComponent,
-    UpdateComponent
+    UpdateComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule,
+    BrowserAnimationsModule,
+    MatCardModule,
+    MatButtonModule,
+    MatInputModule,
+    MatSidenavModule,
+    MatIconModule,
+    MatToolbarModule,
+    MatSnackBarModule
   ],
-  providers: [],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
