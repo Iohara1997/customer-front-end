@@ -26,11 +26,30 @@ export class UserService {
           localStorage.setItem('user', btoa(JSON.stringify(res['user'])));
           this.router.navigate(['']);
         },
-        error: (err) => "error"
+        error: (err) => err
       })
     )
 
   }
+
+  register(user: IUuser): Observable<any> {
+    const email = user.email;
+    const password = user.password;
+    const name = user.name;
+
+    return this.httpClient.post<any>(apiUrl + "register", { email, password, name }).pipe(
+      tap({
+        next: (res) => {
+          localStorage.setItem('token', btoa(JSON.stringify(res['token'])));
+          localStorage.setItem('user', btoa(JSON.stringify(res['user'])));
+          this.router.navigate(['']);
+        },
+        error: (err) => err
+      })
+    )
+
+  }
+
   logout() {
     localStorage.clear();
     this.router.navigate(['login']);

@@ -20,6 +20,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { TokenInterceptor } from './SERVICES/interceptors/token.interceptor';
+import { RegisterComponent } from './COMPONENTS/register/register.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { TokenInterceptor } from './SERVICES/interceptors/token.interceptor';
     StartComponent,
     AddComponent,
     UpdateComponent,
-    LoginComponent
+    LoginComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,

@@ -6,9 +6,11 @@ import { UpdateComponent } from './COMPONENTS/update/update.component';
 import { LoginComponent } from './COMPONENTS/login/login.component';
 import { AuthenticatedUserGuard } from './SERVICES/guards/authenticated-user.guard';
 import { UnauthenticatedUserGuard } from './SERVICES/guards/unauthenticated-user.guard';
+import { RegisterComponent } from './COMPONENTS/register/register.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent, canActivate: [UnauthenticatedUserGuard] },
+  { path: 'register', component: RegisterComponent },
   {
     path: '', component: StartComponent, canActivate: [AuthenticatedUserGuard],
     children: [
