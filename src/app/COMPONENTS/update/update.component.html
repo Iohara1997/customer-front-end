@@ -18,11 +18,19 @@
     </mat-form-field>
     <mat-form-field class="form-element">
       <mat-label>CEP</mat-label>
-      <input matInput type="number" placeholder="Ex: 1234511" name="cep" formControlName="cep" required>
+      <input matInput type="number" placeholder="Ex: 1234511" name="cep" formControlName="cep"
+        (keyup)="generateAddress(formCreate.get('cep').value)" required>
+      <div class="alert  alert-danger"
+        *ngIf="formCreate.get('cep').errors && formCreate.get('cep').errors.cepError && formCreate.get('cep').dirty">
+        CEP deve ter 8 dígitos.
+      </div>
     </mat-form-field>
     <mat-form-field class="form-element">
       <mat-label>Rua</mat-label>
-      <input matInput type="string" placeholder="Rua" name="street" formControlName="street" required>
+      <input matInput type="string" placeholder="Rua" name="street" formControlName="street" readonly required>
+      <div class="alert  alert-danger" *ngIf="street">
+        Não foi possível encontrar um endereço com este CEP.
+      </div>
     </mat-form-field>
     <mat-form-field class="form-element">
       <mat-label>Número</mat-label>
