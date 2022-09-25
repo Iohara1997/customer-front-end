@@ -12,6 +12,7 @@ import { UserService } from '../../SERVICES/user.service';
 export class LoginComponent implements OnInit {
 
   formLogin: FormGroup;
+
   constructor(private formBuilder: FormBuilder, private userService: UserService,
     private snackBar: MatSnackBar) { }
 
@@ -27,7 +28,6 @@ export class LoginComponent implements OnInit {
   }
 
   login() {
-
     if (this.formLogin.invalid) return;
     let user = this.formLogin.getRawValue() as IUuser;
     this.userService.login(user).subscribe(

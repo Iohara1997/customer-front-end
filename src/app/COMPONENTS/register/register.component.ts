@@ -28,7 +28,6 @@ export class RegisterComponent implements OnInit {
   }
 
   register() {
-
     if (this.formLogin.invalid) return;
     let user = this.formLogin.getRawValue() as IUuser;
     this.userService.register(user).subscribe(
@@ -44,5 +43,4 @@ export class RegisterComponent implements OnInit {
       }
     )
   }
-
 }

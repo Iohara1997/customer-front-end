@@ -1,1 +1,36 @@
-<p>add works!</p>
+<div class="container">
+  <form class="my-form" [formGroup]="formCreate" *ngIf="this.formCreate">
+    <mat-form-field class=" form-element">
+      <mat-label>Nome</mat-label>
+      <input matInput placeholder="Nome" name="name" formControlName="name" required>
+    </mat-form-field>
+    <mat-form-field class="form-element">
+      <mat-label>E-mail</mat-label>
+      <input matInput placeholder="Ex. pat@example.com" name="email" formControlName="email" required>
+    </mat-form-field>
+    <mat-form-field class="form-element">
+      <mat-label>CPF</mat-label>
+      <input matInput type="number" placeholder="Ex: 12345678987" name="cpf" formControlName="cpf" required>
+    </mat-form-field>
+    <mat-form-field class="form-element">
+      <mat-label>Telefone</mat-label>
+      <input matInput type="number" placeholder="Ex: 1199882211" name="phone" formControlName="phone" required>
+    </mat-form-field>
+    <mat-form-field class="form-element">
+      <mat-label>CEP</mat-label>
+      <input matInput type="number" placeholder="Ex: 1234511" name="cep" formControlName="cep" required>
+    </mat-form-field>
+    <mat-form-field class="form-element">
+      <mat-label>Rua</mat-label>
+      <input matInput type="string" placeholder="Rua" name="street" formControlName="street" required>
+    </mat-form-field>
+    <mat-form-field class="form-element">
+      <mat-label>Número</mat-label>
+      <input matInput type="string" placeholder="Número do apartamento ou casa" name="num" formControlName="num"
+        required>
+    </mat-form-field>
+    <div class="form-element">
+      <button mat-raised-button class="button" color="primary" (click)="create()">Enviar</button>
+    </div>
+  </form>
+</div>

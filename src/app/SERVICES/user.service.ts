@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
-import { Observable, of } from 'rxjs';
+import { Observable } from 'rxjs';
 import { tap } from 'rxjs/operators';
 import { environment } from '../../environments/environment';
 import { IUuser } from '../INTERFACES/IUuser';;
@@ -29,7 +29,6 @@ export class UserService {
         error: (err) => err
       })
     )
-
   }
 
   register(user: IUuser): Observable<any> {
@@ -47,7 +46,6 @@ export class UserService {
         error: (err) => err
       })
     )
-
   }
 
   logout() {
@@ -78,4 +76,3 @@ export class UserService {
     return localStorage.getItem('token') ? true : false;
   }
 }
-

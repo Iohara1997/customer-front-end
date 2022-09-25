@@ -21,6 +21,11 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { TokenInterceptor } from './SERVICES/interceptors/token.interceptor';
 import { RegisterComponent } from './COMPONENTS/register/register.component';
+import { ListComponent } from './COMPONENTS/list/list.component';
+import { MatTableModule } from '@angular/material/table'
+import { MatProgressBarModule } from '@angular/material/progress-bar';
+import { DialogContentComponent } from './COMPONENTS/list/dialog-content/dialog-content.component';
+import { MatDialogModule } from '@angular/material/dialog';
 
 @NgModule({
   declarations: [
@@ -29,7 +34,9 @@ import { RegisterComponent } from './COMPONENTS/register/register.component';
     AddComponent,
     UpdateComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    ListComponent,
+    DialogContentComponent
   ],
   imports: [
     BrowserModule,
@@ -44,7 +51,10 @@ import { RegisterComponent } from './COMPONENTS/register/register.component';
     MatSidenavModule,
     MatIconModule,
     MatToolbarModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatTableModule,
+    MatProgressBarModule,
+    MatDialogModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true }

@@ -1,23 +1,12 @@
-<nav class="navbar navbar-expand-lg navbar-custom">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="">Customer List</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" routerLink="add">Adicionar</a>
-        </li>
-      </ul>
-      <form class="d-flex">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-dark" type="submit">Procurar</button>
-      </form>
-    </div>
-  </div>
-  <button type="button" class="btn btn-outline-dark" style="margin-right: 20px;" (click)="logout()">Sair</button>
-</nav>
+<mat-toolbar color="primary">
+  <span [routerLink]="['']" class="title">Lista de clientes</span>
+  <span class="spacer"></span>
+  <button mat-icon-button class="add-icon" aria-label="Add customer" [routerLink]="['/add']">
+    <mat-icon>add</mat-icon>
+  </button>
+  <button mat-icon-button class="logout-icon" aria-label="Logout" (click)="logout()">
+    <mat-icon>logout</mat-icon>
+  </button>
+</mat-toolbar>
 
 <router-outlet></router-outlet>

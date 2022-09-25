@@ -1,7 +1,7 @@
-.navbar-custom {
-  background-color: #673ab7;
+.spacer {
+  flex: 1 1 auto;
 }
 
-a {
-  color: black;
+.title:hover {
+  cursor: pointer;
 }

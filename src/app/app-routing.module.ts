@@ -7,6 +7,7 @@ import { LoginComponent } from './COMPONENTS/login/login.component';
 import { AuthenticatedUserGuard } from './SERVICES/guards/authenticated-user.guard';
 import { UnauthenticatedUserGuard } from './SERVICES/guards/unauthenticated-user.guard';
 import { RegisterComponent } from './COMPONENTS/register/register.component';
+import { ListComponent } from './COMPONENTS/list/list.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent, canActivate: [UnauthenticatedUserGuard] },
@@ -14,8 +15,9 @@ const routes: Routes = [
   {
     path: '', component: StartComponent, canActivate: [AuthenticatedUserGuard],
     children: [
+      { path: '', component: ListComponent },
       { path: 'add', component: AddComponent },
-      { path: 'update', component: UpdateComponent }]
+      { path: 'edit/:id', component: UpdateComponent }]
   },
 ];
 
