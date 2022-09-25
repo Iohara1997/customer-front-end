@@ -3,6 +3,10 @@
     <mat-form-field class=" form-element">
       <mat-label>Nome</mat-label>
       <input matInput placeholder="Nome" name="name" formControlName="name" required>
+      <div class="alert  alert-danger"
+        *ngIf="formCreate.get('name').errors && formCreate.get('name').errors.nameError && formCreate.get('name').dirty">
+        Nome inválido.
+      </div>
     </mat-form-field>
     <mat-form-field class="form-element">
       <mat-label>E-mail</mat-label>
@@ -10,20 +14,27 @@
     </mat-form-field>
     <mat-form-field class="form-element">
       <mat-label>CPF</mat-label>
-      <input matInput type="number" placeholder="Ex: 12345678987" name="cpf" formControlName="cpf" minlength="4"
-        required>
+      <input matInput placeholder="Ex: 12345678987" name="cpf" formControlName="cpf" required>
+      <div class="alert  alert-danger"
+        *ngIf="formCreate.get('cpf').errors && formCreate.get('cpf').errors.cpfNotValid && formCreate.get('cpf').dirty">
+        CPF deve conter 11 números e ser válido.
+      </div>
     </mat-form-field>
     <mat-form-field class="form-element">
       <mat-label>Telefone</mat-label>
       <input matInput type="number" placeholder="Ex: 1199882211" name="phone" formControlName="phone" required>
+      <div class="alert  alert-danger"
+        *ngIf="formCreate.get('phone').errors && formCreate.get('phone').errors.phoneError && formCreate.get('phone').dirty">
+        Número não existe.
+      </div>
     </mat-form-field>
     <mat-form-field class="form-element">
       <mat-label>CEP</mat-label>
-      <input matInput type="number" placeholder="Ex: 1234511" name="cep"
-        (keyup)="generateAddress(formCreate.get('cep').value)" formControlName="cep" required>
+      <input matInput placeholder="Ex: 1234511" name="cep" (keyup)="generateAddress(formCreate.get('cep').value)"
+        formControlName="cep" required>
       <div class="alert  alert-danger"
         *ngIf="formCreate.get('cep').errors && formCreate.get('cep').errors.cepError && formCreate.get('cep').dirty">
-        CEP deve ter 8 dígitos.
+        CEP deve conter 8 números.
       </div>
     </mat-form-field>
     <mat-form-field class="form-element">
