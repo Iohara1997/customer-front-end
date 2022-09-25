@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { CustomerService } from 'src/app/SERVICES/customer.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { IUcustomer } from 'src/app/INTERFACES/IUcustomer';
@@ -18,13 +18,20 @@ export class UpdateComponent implements OnInit {
   @Input() street: boolean = false;
 
   constructor(private CustomerService: CustomerService,
-    private formBuilder: FormBuilder, private snackBar: MatSnackBar, private activeRoute: ActivatedRoute, private CepService: CepService) { }
+    private formBuilder: FormBuilder, private snackBar: MatSnackBar,
+    private activeRoute: ActivatedRoute, private CepService: CepService,
+    private Router: Router) { }
 
   async ngOnInit() {
     this.id_customer = <string>this.activeRoute.snapshot.params.id;
     if (this.id_customer) {
       await (await this.CustomerService.getOneCustomer(this.id_customer)).toPromise().then((res) => {
         this.customer = res as IUcustomer;
+      }).catch((err) => {
+        if (err.error == 'Invalid Token.') {
+          localStorage.clear()
+          return this.Router.navigate(['login']);
+        }
       })
     }
     this.createForm();

@@ -26,6 +26,7 @@ import { MatTableModule } from '@angular/material/table'
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { DialogContentComponent } from './COMPONENTS/list/dialog-content/dialog-content.component';
 import { MatDialogModule } from '@angular/material/dialog';
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 @NgModule({
   declarations: [
@@ -54,7 +55,8 @@ import { MatDialogModule } from '@angular/material/dialog';
     MatSnackBarModule,
     MatTableModule,
     MatProgressBarModule,
-    MatDialogModule
+    MatDialogModule,
+    MatTooltipModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true }

@@ -5,3 +5,12 @@
 .title:hover {
   cursor: pointer;
 }
+
+img {
+  width: 5%;
+  margin-left: 2px;
+}
+
+html {
+  width: 100%;
+}

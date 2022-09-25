@@ -12,3 +12,11 @@
   padding: 5px 0px 25px 2px;
   width: 100%;
 }
+
+.button {
+  margin-left: 5px;
+}
+
+.mat-stroked-button {
+  background-color: azure;
+}

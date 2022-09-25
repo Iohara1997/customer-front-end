@@ -19,7 +19,12 @@ export class CustomerService {
         next: (res) => {
           this.router.navigate(['']);
         },
-        error: (err) => err
+        error: (err) => {
+          if (err.error == 'Invalid Token.') {
+            localStorage.clear()
+            return this.router.navigate(['login']);
+          }
+        }
       })
     );
   }
@@ -28,7 +33,7 @@ export class CustomerService {
     try {
       return await this.http.get(this.url + '/' + id)
     } catch (error) {
-      console.error(error)
+      console.log(error)
     }
   }
 
@@ -44,7 +49,12 @@ export class CustomerService {
         next: (res) => {
           this.router.navigate(['']);
         },
-        error: (err) => err
+        error: (err) => {
+          if (err.error == 'Invalid Token.') {
+            localStorage.clear()
+            return this.router.navigate(['login']);
+          }
+        }
       })
     )
   }
@@ -55,7 +65,12 @@ export class CustomerService {
         next: (res) => {
           this.router.navigate(['']);
         },
-        error: (err) => err
+        error: (err) => {
+          if (err.error == 'Invalid Token.') {
+            localStorage.clear()
+            return this.router.navigate(['login']);
+          }
+        }
       })
     );
   }
@@ -72,7 +87,13 @@ export class CustomerService {
         next: (res) => {
           this.router.navigate(['']);
         },
-        error: (err) => err
+        error: (err) => {
+          console.log(err)
+          if (err.error == 'Invalid Token.') {
+            localStorage.clear()
+            return this.router.navigate(['login']);
+          }
+        }
       })
     );
   }
